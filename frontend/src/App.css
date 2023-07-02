@@ -1,8 +1,39 @@
-.app{
+.app {
     color: white;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid white;
+    padding: 8px;
+}
+
+.download-button {
+    float: right;
+}
+
+.server-response{
+    position: absolute;
+    top: 100px;
+    right: 5px;
+
+    padding: 10px;
+    background-color: #5cb85c;
+    color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: opacity 0.3s ease;
+
+}
+
+.success {
+        background-color: green;
+}
+.error {
+    background-color: red;
 }
