@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DownloadButton from './download';
+
 
 const UploadComponent = () => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -12,7 +12,7 @@ const UploadComponent = () => {
     };
 
     const handleUpload = () => {
-        // Perform the upload using REST API
+
         console.log("uploading")
         if (selectedFile) {
             const formData = new FormData();
@@ -24,7 +24,7 @@ const UploadComponent = () => {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    // Handle the response from the API
+             
                     setServerResponse(data.message);
                     if (data.message == "uploaded successfully") {
                         setIsSuccess(true);
@@ -35,7 +35,7 @@ const UploadComponent = () => {
                     }, 3000);
                 })
                 .catch((error) => {
-                    // Handle any errors
+                 
                     setServerResponse(error.message);
                     setIsSuccess(false);
                     setTimeout(() => {
@@ -46,14 +46,13 @@ const UploadComponent = () => {
     };
 
     return (
-        <div>
+        <>
             <input type="file" accept=".csv" onChange={handleFileSelect} />
             <button onClick={handleUpload}>Upload</button>
-            <DownloadButton />
             {serverResponse && (<div className={`server-response ${isSuccess ? 'success' : 'error'}`}>
                 {serverResponse}
             </div>)}
-        </div>
+        </>
     );
 };
 

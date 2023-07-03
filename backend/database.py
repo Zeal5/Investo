@@ -16,8 +16,6 @@ class MyTable(Base):
     ticker = Column(String(15))
 
 
-# Create the table
+
 engine = create_engine('postgresql://postgres:zeal@localhost:5432/investo')
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-# 

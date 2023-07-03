@@ -37,3 +37,12 @@ td {
 .error {
     background-color: red;
 }
+
+#next-page {
+    float: right;
+    width: 50%;
+}
+#last-page {
+    float: left;
+    width: 50%;
+}
