@@ -1,17 +1,23 @@
-from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy import create_engine, Column,DateTime, Integer, String, Float, BigInteger
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
 class MyTable(Base):
-    __tablename__ = 'my_table'
+    __tablename__ = 'OHLC'
     id = Column(Integer, primary_key=True)
-    name = Column(String)
-    age = Column(Integer)
+    datetime = Column(DateTime)
+    close = Column(Float)
+    high = Column(Float)
+    low = Column(Float)
+    open =Column(Float)
+    volumn = Column(BigInteger)
+    ticker = Column(String(15))
+
 
 # Create the table
 engine = create_engine('postgresql://postgres:zeal@localhost:5432/investo')
-Session = sessionmaker(bind=engine)
-session = Session()
-Base.metadata.create_all(engine)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+# 
